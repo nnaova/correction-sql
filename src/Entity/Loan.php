@@ -2,23 +2,26 @@
 
 namespace App\Entity;
 
-use App\Repository\ReviewsRepository;
+use App\Repository\LoanRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ReviewsRepository::class)]
-class Reviews
+#[ORM\Entity(repositoryClass: LoanRepository::class)]
+class Loan
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $comment = null;
-
     #[ORM\Column]
-    private ?int $mark = null;
+    private ?float $price = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $start_date = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $end_date = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
@@ -27,36 +30,48 @@ class Reviews
     private ?\DateTimeInterface $updated_at = null;
 
     #[ORM\ManyToOne]
-    private ?Lectors $lector_id = null;
+    private ?Lector $lector_id = null;
 
     #[ORM\ManyToOne]
-    private ?Books $book_id = null;
+    private ?Book $book_id = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getComment(): ?string
+    public function getPrice(): ?float
     {
-        return $this->comment;
+        return $this->price;
     }
 
-    public function setComment(string $comment): static
+    public function setPrice(float $price): static
     {
-        $this->comment = $comment;
+        $this->price = $price;
 
         return $this;
     }
 
-    public function getMark(): ?int
+    public function getStartDate(): ?\DateTimeInterface
     {
-        return $this->mark;
+        return $this->start_date;
     }
 
-    public function setMark(int $mark): static
+    public function setStartDate(\DateTimeInterface $start_date): static
     {
-        $this->mark = $mark;
+        $this->start_date = $start_date;
+
+        return $this;
+    }
+
+    public function getEndDate(): ?\DateTimeInterface
+    {
+        return $this->end_date;
+    }
+
+    public function setEndDate(\DateTimeInterface $end_date): static
+    {
+        $this->end_date = $end_date;
 
         return $this;
     }
@@ -85,24 +100,24 @@ class Reviews
         return $this;
     }
 
-    public function getLectorId(): ?Lectors
+    public function getLectorId(): ?Lector
     {
         return $this->lector_id;
     }
 
-    public function setLectorId(?Lectors $lector_id): static
+    public function setLectorId(?Lector $lector_id): static
     {
         $this->lector_id = $lector_id;
 
         return $this;
     }
 
-    public function getBookId(): ?Books
+    public function getBookId(): ?Book
     {
         return $this->book_id;
     }
 
-    public function setBookId(?Books $book_id): static
+    public function setBookId(?Book $book_id): static
     {
         $this->book_id = $book_id;
 

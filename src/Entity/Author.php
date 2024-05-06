@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\AuthorsRepository;
+use App\Repository\AuthorRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: AuthorsRepository::class)]
-class Authors
+#[ORM\Entity(repositoryClass: AuthorRepository::class)]
+class Author
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

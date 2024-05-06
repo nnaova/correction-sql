@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\BooksRepository;
+use App\Repository\BookRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: BooksRepository::class)]
-class Books
+#[ORM\Entity(repositoryClass: BookRepository::class)]
+class Book
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -30,10 +30,10 @@ class Books
     private ?\DateTimeInterface $updated_at = null;
 
     #[ORM\ManyToOne]
-    private ?Authors $author_id = null;
+    private ?Author $author_id = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Genres $genre_id = null;
+    private ?Genre $genre_id = null;
 
     public function getId(): ?int
     {
@@ -100,24 +100,24 @@ class Books
         return $this;
     }
 
-    public function getAuthorId(): ?authors
+    public function getAuthorId(): ?author
     {
         return $this->author_id;
     }
 
-    public function setAuthorId(?authors $author_id): static
+    public function setAuthorId(?author $author_id): static
     {
         $this->author_id = $author_id;
 
         return $this;
     }
 
-    public function getGenreId(): ?Genres
+    public function getGenreId(): ?Genre
     {
         return $this->genre_id;
     }
 
-    public function setGenreId(?Genres $genre_id): static
+    public function setGenreId(?Genre $genre_id): static
     {
         $this->genre_id = $genre_id;
 

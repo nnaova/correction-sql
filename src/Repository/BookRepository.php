@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\Books;
+use App\Entity\Book;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -14,11 +14,11 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Books[]    findAll()
  * @method Books[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class BooksRepository extends ServiceEntityRepository
+class BookRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Books::class);
+        parent::__construct($registry, Book::class);
     }
 
     //    /**
