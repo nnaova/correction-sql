@@ -26,20 +26,20 @@ class Lector
     #[ORM\Column(length: 64)]
     private ?string $password = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $birthdate = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $birthdate = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $registered_at = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $registered_at = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $created_at = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $created_at = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $updated_at = null;
 
     #[ORM\ManyToOne]
-    private ?Address $addreess_id = null;
+    private ?Address $address_id = null;
 
     public function getId(): ?int
     {
@@ -94,36 +94,36 @@ class Lector
         return $this;
     }
 
-    public function getBirthdate(): ?\DateTimeImmutable
+    public function getBirthdate(): ?\DateTimeInterface
     {
         return $this->birthdate;
     }
 
-    public function setBirthdate(\DateTimeImmutable $birthdate): static
+    public function setBirthdate(\DateTimeInterface $birthdate): static
     {
         $this->birthdate = $birthdate;
 
         return $this;
     }
 
-    public function getRegisteredAt(): ?\DateTimeImmutable
+    public function getRegisteredAt(): ?\DateTimeInterface
     {
         return $this->registered_at;
     }
 
-    public function setRegisteredAt(\DateTimeImmutable $registered_at): static
+    public function setRegisteredAt(\DateTimeInterface $registered_at): static
     {
         $this->registered_at = $registered_at;
 
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->created_at;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $created_at): static
+    public function setCreatedAt(\DateTimeInterface $created_at): static
     {
         $this->created_at = $created_at;
 
@@ -142,14 +142,14 @@ class Lector
         return $this;
     }
 
-    public function getAddreessId(): ?address
+    public function getAddressId(): ?address
     {
-        return $this->addreess_id;
+        return $this->address_id;
     }
 
-    public function setAddreessId(?address $addreess_id): static
+    public function setAddressId(?address $address_id): static
     {
-        $this->addreess_id = $addreess_id;
+        $this->address_id = $address_id;
 
         return $this;
     }
