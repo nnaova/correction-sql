@@ -30,10 +30,10 @@ class Loan
     private ?\DateTimeInterface $updated_at = null;
 
     #[ORM\ManyToOne]
-    private ?Lector $lector_id = null;
+    private ?Lector $lector = null;
 
     #[ORM\ManyToOne]
-    private ?Book $book_id = null;
+    private ?Book $book = null;
 
     public function getId(): ?int
     {
@@ -100,26 +100,26 @@ class Loan
         return $this;
     }
 
-    public function getLectorId(): ?Lector
+    public function getLector(): ?Lector
     {
-        return $this->lector_id;
+        return $this->lector;
     }
 
-    public function setLectorId(?Lector $lector_id): static
+    public function setLector(?Lector $lector): static
     {
-        $this->lector_id = $lector_id;
+        $this->lector = $lector;
 
         return $this;
     }
 
-    public function getBookId(): ?Book
+    public function getBook(): ?Book
     {
-        return $this->book_id;
+        return $this->book;
     }
 
-    public function setBookId(?Book $book_id): static
+    public function setBook(?Book $book): static
     {
-        $this->book_id = $book_id;
+        $this->book = $book;
 
         return $this;
     }

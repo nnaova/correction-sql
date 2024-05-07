@@ -10,10 +10,10 @@ class Genre extends Fixture
     public function load(ObjectManager $manager): void
     {
         // create 20 genres
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 1; $i <= 20; $i++) {
             $genre = new \App\Entity\Genre();
             $genre->setName('Genre ' . $i);
-            $genre->setDeescription('Description ' . $i);
+            $genre->setDescription('Description ' . $i);
             $genre->setCreatedAt(new \DateTime('now'));
             $genre->setUpdatedAt(new \DateTime('now'));
 

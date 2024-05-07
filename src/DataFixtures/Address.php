@@ -10,7 +10,7 @@ class Address extends Fixture
     public function load(ObjectManager $manager): void
     {
         // create 20 addresses
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 1; $i <= 20; $i++) {
             $address = new \App\Entity\Address();
             $address->setNumber(rand(1, 100));
             $address->setStreetName('Street Name ' . $i);

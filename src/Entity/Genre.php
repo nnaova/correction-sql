@@ -14,16 +14,16 @@ class Genre
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 42)]
+    #[ORM\Column(length: 42, nullable: true)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $deescription = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $description = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $created_at = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updated_at = null;
 
     public function getId(): ?int
@@ -36,21 +36,21 @@ class Genre
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(?string $name): static
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function getDeescription(): ?string
+    public function getDescription(): ?string
     {
-        return $this->deescription;
+        return $this->description;
     }
 
-    public function setDeescription(string $deescription): static
+    public function setDescription(?string $description): static
     {
-        $this->deescription = $deescription;
+        $this->description = $description;
 
         return $this;
     }
@@ -60,7 +60,7 @@ class Genre
         return $this->created_at;
     }
 
-    public function setCreatedAt(\DateTimeInterface $created_at): static
+    public function setCreatedAt(?\DateTimeInterface $created_at): static
     {
         $this->created_at = $created_at;
 
@@ -72,7 +72,7 @@ class Genre
         return $this->updated_at;
     }
 
-    public function setUpdatedAt(\DateTimeInterface $updated_at): static
+    public function setUpdatedAt(?\DateTimeInterface $updated_at): static
     {
         $this->updated_at = $updated_at;
 

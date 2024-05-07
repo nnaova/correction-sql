@@ -10,7 +10,7 @@ class Author extends Fixture
     public function load(ObjectManager $manager): void
     {
         // create 20 authors
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 1; $i <= 20; $i++) {
             $author = new \App\Entity\Author();
             $author->setFirstname('Firstname' . $i);
             $author->setLastname('Lastname' . $i);

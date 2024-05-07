@@ -7,12 +7,12 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Genres>
+ * @extends ServiceEntityRepository<Genre>
  *
- * @method Genres|null find($id, $lockMode = null, $lockVersion = null)
- * @method Genres|null findOneBy(array $criteria, array $orderBy = null)
- * @method Genres[]    findAll()
- * @method Genres[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Genre|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Genre|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Genre[]    findAll()
+ * @method Genre[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class GenreRepository extends ServiceEntityRepository
 {
@@ -22,7 +22,7 @@ class GenreRepository extends ServiceEntityRepository
     }
 
     //    /**
-    //     * @return Genres[] Returns an array of Genres objects
+    //     * @return Genre[] Returns an array of Genre objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -36,7 +36,7 @@ class GenreRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Genres
+    //    public function findOneBySomeField($value): ?Genre
     //    {
     //        return $this->createQueryBuilder('g')
     //            ->andWhere('g.exampleField = :val')

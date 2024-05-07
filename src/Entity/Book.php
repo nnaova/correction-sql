@@ -30,10 +30,10 @@ class Book
     private ?\DateTimeInterface $updated_at = null;
 
     #[ORM\ManyToOne]
-    private ?Author $author_id = null;
+    private ?Author $author = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Genre $genre_id = null;
+    #[ORM\ManyToOne]
+    private ?Genre $genre = null;
 
     public function getId(): ?int
     {
@@ -100,26 +100,26 @@ class Book
         return $this;
     }
 
-    public function getAuthorId(): ?author
+    public function getAuthor(): ?author
     {
-        return $this->author_id;
+        return $this->author;
     }
 
-    public function setAuthorId(?author $author_id): static
+    public function setAuthor(?author $author): static
     {
-        $this->author_id = $author_id;
+        $this->author = $author;
 
         return $this;
     }
 
-    public function getGenreId(): ?Genre
+    public function getGenre(): ?Genre
     {
-        return $this->genre_id;
+        return $this->genre;
     }
 
-    public function setGenreId(?Genre $genre_id): static
+    public function setGenre(?Genre $genre): static
     {
-        $this->genre_id = $genre_id;
+        $this->genre = $genre;
 
         return $this;
     }

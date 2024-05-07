@@ -39,7 +39,7 @@ class Lector
     private ?\DateTimeInterface $updated_at = null;
 
     #[ORM\ManyToOne]
-    private ?Address $address_id = null;
+    private ?Address $address = null;
 
     public function getId(): ?int
     {
@@ -142,14 +142,14 @@ class Lector
         return $this;
     }
 
-    public function getAddressId(): ?address
+    public function getAddress(): ?address
     {
-        return $this->address_id;
+        return $this->address;
     }
 
-    public function setAddressId(?address $address_id): static
+    public function setAddress(?address $address): static
     {
-        $this->address_id = $address_id;
+        $this->address = $address;
 
         return $this;
     }

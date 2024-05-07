@@ -10,7 +10,7 @@ class Lector extends Fixture
     public function load(ObjectManager $manager): void
     {
         // create 20 lectors
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 1; $i <= 20; $i++) {
             $lector = new \App\Entity\Lector();
             $lector->setFirstname('Firstname' . $i);
             $lector->setLastname('Lastname' . $i);
@@ -20,7 +20,8 @@ class Lector extends Fixture
             $lector->setRegisteredAt(new \DateTime('now'));
             $lector->setCreatedAt(new \DateTime('now'));
             $lector->setUpdatedAt(new \DateTime('now'));
-            //TODO add address
+            $address = $manager->getRepository(\App\Entity\Address::class)->find(rand(1, 20));
+            $lector->setAddress($address);
 
             $manager->persist($lector);
         }
